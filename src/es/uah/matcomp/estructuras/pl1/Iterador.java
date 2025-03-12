@@ -1,8 +1,8 @@
-package es.uah.matcomp.estructuras.pl1.ej1;
+package es.uah.matcomp.estructuras.pl1;
 
 public class Iterador<T> {
-    private T[] elementos; // Array de elementos
-    private int indiceActual; // Índice actual en el recorrido
+    protected T[] elementos; // Array de elementos
+    protected int indiceActual; // Índice actual en el recorrido
 
 
     public Iterador(T[] elementos, int numElementos) {

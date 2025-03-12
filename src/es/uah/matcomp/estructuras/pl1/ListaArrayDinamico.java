@@ -1,9 +1,9 @@
-package es.uah.matcomp.estructuras.pl1.ej1;
+package es.uah.matcomp.estructuras.pl1;
 
 public class ListaArrayDinamico<T> implements Lista<T> {
-    private T[] elementos;
-    private int numElementos;
-    private int tamanoMax;
+    protected T[] elementos;
+    protected int numElementos;
+    protected int tamanoMax;
     /** Constructor con capacidad por defecto*/
     public ListaArrayDinamico(int tamanoMax) {
         elementos = (T[]) new Object[10];

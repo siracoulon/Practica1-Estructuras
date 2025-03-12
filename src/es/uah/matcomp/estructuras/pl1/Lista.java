@@ -1,4 +1,4 @@
-package es.uah.matcomp.estructuras.pl1.ej1;
+package es.uah.matcomp.estructuras.pl1;
 
 public interface Lista<T> {
     boolean add(T elemento);
