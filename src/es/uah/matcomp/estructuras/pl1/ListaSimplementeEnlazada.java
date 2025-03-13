@@ -1,6 +1,6 @@
 package es.uah.matcomp.estructuras.pl1;
 
-public class ListaSimplementeEnlazada<T> implements Lista<T> {
+public class ListaSimplementeEnlazada<T> implements Lista2<T> {
     private Elemento<T> head;
     private int numElementos;
 
@@ -62,7 +62,7 @@ public class ListaSimplementeEnlazada<T> implements Lista<T> {
     }
 
     @Override
-    public Iterador<T> getIterador() {
+    public Iterator<T> getIterator() {
         return new IteratorListaSimplementeEnlazada<>(this);
     }
 
