@@ -1,0 +1,6 @@
+interface Iterador<T> {
+    boolean hasNext();
+    T next();
+    boolean hasPrevious();
+    T previous();
+}
