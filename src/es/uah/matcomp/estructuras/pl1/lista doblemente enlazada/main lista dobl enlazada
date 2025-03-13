@@ -1,0 +1,21 @@
+public class TestListaDoblementeEnlazada {
+    public static void main(String[] args) {
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+
+        Iterador<Integer> iterador = lista.iterador();
+
+        System.out.println("Recorrido hacia adelante:");
+        while (iterador.hasNext()) {
+            System.out.println(iterador.next());
+        }
+
+        System.out.println("Recorrido hacia atrás:");
+        while (iterador.hasPrevious()) {
+            System.out.println(iterador.previous());
+        }
+    }
+}
