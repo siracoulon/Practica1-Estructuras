@@ -1,0 +1,66 @@
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class TestListaDoblementeEnlazadaTest {
+
+    @Test
+    public void testAgregar() {
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+
+        assertEquals(3, lista.tamanio());
+        assertTrue(lista.contiene(10));
+        assertTrue(lista.contiene(20));
+        assertTrue(lista.contiene(30));
+    }
+
+    @Test
+    public void testEliminar() {
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+        lista.eliminar(20);
+
+        assertEquals(2, lista.tamanio());
+        assertFalse(lista.contiene(20));
+        assertTrue(lista.contiene(10));
+        assertTrue(lista.contiene(30));
+    }
+
+    @Test
+    public void testIteradorHaciaAdelante() {
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+
+        Iterador<Integer> iterador = lista.iterador();
+        assertTrue(iterador.hasNext());
+        assertEquals(10, iterador.next());
+        assertEquals(20, iterador.next());
+        assertEquals(30, iterador.next());
+        assertFalse(iterador.hasNext());
+    }
+
+    @Test
+    public void testIteradorHaciaAtras() {
+        ListaDoblementeEnlazada<Integer> lista = new ListaDoblementeEnlazada<>();
+        lista.agregar(10);
+        lista.agregar(20);
+        lista.agregar(30);
+
+        Iterador<Integer> iterador = lista.iterador();
+        while (iterador.hasNext()) {
+            iterador.next();
+        }
+
+        assertTrue(iterador.hasPrevious());
+        assertEquals(30, iterador.previous());
+        assertEquals(20, iterador.previous());
+        assertEquals(10, iterador.previous());
+        assertFalse(iterador.hasPrevious());
+    }
+}
