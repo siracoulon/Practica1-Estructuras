@@ -1,36 +1,39 @@
 package es.uah.matcomp.estructuras.pl1;
-
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class ElementoDiccionarioTest {
+    private ElementoDiccionario<String, Integer> elemento;
 
-    @Test
-    void getClave() {
+    @BeforeEach
+    void setUp() {
+        elemento = new ElementoDiccionario<>("clave1", 10);
     }
 
     @Test
-    void getValor() {
+    void testGetClave() {
+        assertEquals("clave1", elemento.getClave());
     }
 
     @Test
-    void setValor() {
+    void testGetValor() {
+        assertEquals(10, elemento.getValor());
     }
 
     @Test
-    void getSiguiente() {
+    void testSetValor() {
+        elemento.setValor(20);
+        assertEquals(20, elemento.getValor());
     }
 
     @Test
-    void setSiguiente() {
-    }
+    void testSetSiguienteYAnterior() {
+        ElementoDiccionario<String, Integer> otroElemento = new ElementoDiccionario<>("clave2", 30);
+        elemento.setSiguiente(otroElemento);
+        otroElemento.setAnterior(elemento);
 
-    @Test
-    void getAnterior() {
-    }
-
-    @Test
-    void setAnterior() {
+        assertEquals(otroElemento, elemento.getSiguiente());
+        assertEquals(elemento, otroElemento.getAnterior());
     }
 }

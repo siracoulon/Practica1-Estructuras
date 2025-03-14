@@ -27,11 +27,13 @@ public class DiccionarioOrdenado<K extends Comparable<K>, V> {
                 actual = actual.getSiguiente();
             }
 
+            // Verificar si la clave ya existe y reemplazar el valor
             if (actual.getSiguiente() != null && actual.getSiguiente().getClave().equals(clave)) {
                 actual.getSiguiente().setValor(valor);
-                return;
+                return;  // Si se encuentra la clave, no hacemos más cambios
             }
 
+            // Insertar el nuevo elemento en la posición adecuada
             nuevo.setSiguiente(actual.getSiguiente());
             nuevo.setAnterior(actual);
 

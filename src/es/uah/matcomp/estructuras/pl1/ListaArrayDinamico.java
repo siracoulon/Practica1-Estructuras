@@ -6,7 +6,7 @@ public class ListaArrayDinamico<T> implements Lista<T> {
     protected int tamanoMax;
     /** Constructor con capacidad por defecto*/
     public ListaArrayDinamico(int tamanoMax) {
-        elementos = (T[]) new Object[10];
+        elementos = (T[]) new Object[tamanoMax];
         numElementos = 0;
         this.tamanoMax = tamanoMax;
     }
@@ -20,7 +20,7 @@ public class ListaArrayDinamico<T> implements Lista<T> {
             }
             // Reasigno el atributo elementos a mi nuevo array
             elementos = nuevoArray;
-            tamanoMax = tamanoMax * 2;
+            tamanoMax *= 2;
         }
         // Añado el nuevo elemento a la ultima posicion disponible
         elementos[numElementos] = elemento;
@@ -34,7 +34,7 @@ public class ListaArrayDinamico<T> implements Lista<T> {
             if (elementos[i].equals(elemento)) {
                 // Muevo los siguientes a la izquierda
                 for (int j = i + 1; j < numElementos; j++) {
-                    elementos[j] = elementos[j - 1];
+                    elementos[j - 1] = elementos[j];
                 }
                 //Vacío el último
                 elementos[numElementos-1] = null;

@@ -11,7 +11,7 @@ public class Iterador<T> {
     }
 
     public boolean hasNext() {
-        return indiceActual != 0;
+        return indiceActual < elementos.length && elementos[indiceActual] != null;
     }
     public T next() {
         if (!hasNext()) {
